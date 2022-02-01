@@ -3,23 +3,29 @@ const request = require("../../request");
 
 module.exports = {
   trendingMovies: async () => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3${request.fetchTrending}`
-    );
-    const { data } = response;
-
-    return {
-      ...data,
-    };
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3${request.fetchTrending}`
+      );
+      const { data } = response;
+      return {
+        ...data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
   },
   topMovies: async () => {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3${request.fetchTopRated}`
-    );
-    const { data } = response;
-
-    return {
-      ...data,
-    };
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3${request.fetchTopRated}`
+      );
+      const { data } = response;
+      return {
+        ...data,
+      };
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
