@@ -5,7 +5,7 @@ module.exports = {
   trendingMovies: async () => {
     try {
       const response = await axios.get(
-        `https://api.th1emoviedb.org/3${request.fetchTrending}`
+        `https://api.themoviedb.org/3${request.fetchTrending}`
       );
       const { data } = response;
       return {
