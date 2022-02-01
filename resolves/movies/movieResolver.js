@@ -13,14 +13,29 @@ module.exports = {
       };
     } catch (error) {
       return {
-          error
-      }
+        error,
+      };
     }
   },
   topMovies: async () => {
     try {
       const response = await axios.get(
         `https://api.themoviedb.org/3${request.fetchTopRated}`
+      );
+      const { data } = response;
+      return {
+        ...data,
+      };
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  },
+  nowPlaying: async () => {
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3${request.fetchTopNowPlaying}`
       );
       const { data } = response;
       return {

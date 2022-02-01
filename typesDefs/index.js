@@ -12,17 +12,23 @@ const typesDefs = gql`
     release_date: String
     id: Int
     original_title: String
-    original_language: String
   }
+  type Dates {
+    maximum: String
+    minimum: String
+  }
+
   type MovieResults {
     page: Int
     results: [Movie]
     total_pages: Int
     total_results: Int
+    dates: Dates
   }
   type Query {
     trendingMovies: MovieResults
     topMovies: MovieResults
+    nowPlaying: MovieResults
   }
 `;
 module.exports = typesDefs;
