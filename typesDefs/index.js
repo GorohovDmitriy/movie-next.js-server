@@ -23,12 +23,12 @@ const typesDefs = gql`
     results: [Movie]
     total_pages: Int
     total_results: Int
-    dates: Dates
   }
   type Query {
     trendingMovies: MovieResults
     topMovies: MovieResults
     nowPlaying: MovieResults
+    searchMovies(title: String!): MovieResults
   }
 `;
 module.exports = typesDefs;

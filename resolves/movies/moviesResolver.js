@@ -1,12 +1,11 @@
 const axios = require("axios");
 const request = require("../../request");
+const baseUrl = require("../../request/baseUrl");
 
 module.exports = {
   trendingMovies: async () => {
     try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3${request.fetchTrending}`
-      );
+      const response = await axios.get(`${baseUrl}${request.fetchTrending}`);
       const { data } = response;
       return {
         ...data,
@@ -19,9 +18,7 @@ module.exports = {
   },
   topMovies: async () => {
     try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3${request.fetchTopRated}`
-      );
+      const response = await axios.get(`${baseUrl}${request.fetchTopRated}`);
       const { data } = response;
       return {
         ...data,
@@ -35,9 +32,25 @@ module.exports = {
   nowPlaying: async () => {
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3${request.fetchTopNowPlaying}`
+        `${baseUrl}${request.fetchTopNowPlaying}`
       );
       const { data } = response;
+      return {
+        ...data,
+      };
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  },
+  searchMovies: async () => {
+    try {
+      const response = await axios.get(
+        `${baseUrl}${request.fetchSearchMovies}&query=${title}`
+      );
+      const { data } = response;
+
       return {
         ...data,
       };

@@ -1,4 +1,4 @@
-const moviesResolver = require("./movieResolver");
+const moviesResolver = require("./moviesResolver");
 
 module.exports = {
   Query: {
