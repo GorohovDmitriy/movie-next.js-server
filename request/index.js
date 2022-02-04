@@ -10,4 +10,4 @@ const request = {
   fetchSearchMovies: `/search/movie?api_key=${API_KEY}&language=en-US`,
 };
 
-module.exports = request;
+module.exports = { request, API_KEY };

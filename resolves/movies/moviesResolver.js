@@ -1,5 +1,5 @@
 const axios = require("axios");
-const request = require("../../request");
+const { request, API_KEY } = require("../../request");
 const baseUrl = require("../../request/baseUrl");
 
 module.exports = {
@@ -63,7 +63,7 @@ module.exports = {
   detailsMovie: async (parent, args, context, info) => {
     try {
       const response = await axios.get(
-        `${baseUrl}/movie/${args.id}?api_key=c91068f2bd5a35c89519c19dbe08ef59&language=en-US`
+        `${baseUrl}/movie/${args.id}?api_key=${API_KEY}&language=en-US`
       );
       const { data } = response;
 
