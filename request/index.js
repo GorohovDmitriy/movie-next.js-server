@@ -8,7 +8,6 @@ const request = {
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
   fetchSearchMovies: `/search/movie?api_key=${API_KEY}&language=en-US`,
-  
 };
 
 module.exports = request;
