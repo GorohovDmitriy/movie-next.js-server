@@ -10,10 +10,11 @@ const typesDefs = gql`
     original_language: String
     title: String
     backdrop_path: String
-    popularity: Int
+    popularity: Float
     vote_count: Int
-    vote_average: Int
+    vote_average: Float
   }
+
   type Dates {
     maximum: String
     minimum: String
@@ -26,7 +27,7 @@ const typesDefs = gql`
     name: String
     id: Int
     logo_path: String
-    orogon_country: String
+    origin_country: String
   }
   type ProductCountrie {
     name: String
@@ -51,8 +52,9 @@ const typesDefs = gql`
     tagline: String
     title: String
     video: Boolean
-    vote_average: Int
     vote_count: Int
+    vote_average: Float
+    popularity: Float
   }
   type MovieResults {
     page: Int
