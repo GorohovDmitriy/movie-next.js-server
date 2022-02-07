@@ -63,10 +63,10 @@ const typesDefs = gql`
     total_results: Int
   }
   type Query {
-    trendingMovies: MovieResults
-    topMovies: MovieResults
-    nowPlaying: MovieResults
-    searchMovies(title: String!): MovieResults
+    trendingMovies(page: Int): MovieResults
+    topMovies(page: Int): MovieResults
+    nowPlaying(page: Int): MovieResults
+    searchMovies(title: String! page: Int): MovieResults
     detailsMovie(id: Int): MovieDetails
   }
 `;

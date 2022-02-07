@@ -3,36 +3,40 @@ const { request, API_KEY } = require("../../request");
 const baseUrl = require("../../request/baseUrl");
 
 module.exports = {
-  trendingMovies: async () => {
-    try {
-      const response = await axios.get(`${baseUrl}${request.fetchTrending}`);
-      const { data } = response;
-      return {
-        ...data,
-      };
-    } catch (error) {
-      return {
-        error,
-      };
-    }
-  },
-  topMovies: async () => {
-    try {
-      const response = await axios.get(`${baseUrl}${request.fetchTopRated}`);
-      const { data } = response;
-      return {
-        ...data,
-      };
-    } catch (error) {
-      return {
-        error,
-      };
-    }
-  },
-  nowPlaying: async () => {
+  trendingMovies: async (parent, args, context, info) => {
     try {
       const response = await axios.get(
-        `${baseUrl}${request.fetchTopNowPlaying}`
+        `${baseUrl}${request.fetchTrending}&page=${args.page}`
+      );
+      const { data } = response;
+      return {
+        ...data,
+      };
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  },
+  topMovies: async (parent, args, context, info) => {
+    try {
+      const response = await axios.get(
+        `${baseUrl}${request.fetchTopRated}&page=${args.page}`
+      );
+      const { data } = response;
+      return {
+        ...data,
+      };
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  },
+  nowPlaying: async (parent, args, context, info) => {
+    try {
+      const response = await axios.get(
+        `${baseUrl}${request.fetchTopNowPlaying}&page=${args.page}`
       );
       const { data } = response;
       return {
@@ -47,7 +51,7 @@ module.exports = {
   searchMovies: async (parent, args, context, info) => {
     try {
       const response = await axios.get(
-        `${baseUrl}${request.fetchSearchMovies}&query=${args.title}`
+        `${baseUrl}${request.fetchSearchMovies}&query=${args.title}&page=${args.page}`
       );
       const { data } = response;
 
